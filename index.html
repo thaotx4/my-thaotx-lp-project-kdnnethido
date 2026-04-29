@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khăn Mặt Khô Đa Năng NetHido - Chăm Sóc Bé Yêu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* BẢNG MÀU & BIẾN SỐ */
+    :root {
+      --mint: #7ecfb3;
+      --mint-dark: #2d4a3e;
+      --mint-light: #d4f5eb;
+      --kem: #f5efe6;
+      --white: #ffffff;
+      --accent: #f4a261;
+      --gray-light: #f8f9fa;
+    }
+
+    /* RESET & CẤU HÌNH CHUNG */
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body { 
+      font-family: 'Quicksand', sans-serif; 
+      color: var(--mint-dark); 
+      line-height: 1.6; 
+      background-color: var(--white);
+    }
+    h1, h2, h3 { font-family: 'Nunito', sans-serif; font-weight: 900; line-height: 1.2; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 15px; }
+
+    /* HIỆU ỨNG CUỘN FADE-UP */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HERO SECTION */
+    #hero {
+      background: linear-gradient(135deg, var(--mint-light) 0%, var(--kem) 100%);
+      padding: 80px 20px;
+      text-align: center;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-title { font-size: 2.5rem; color: var(--mint-dark); margin-bottom: 20px; text-transform: uppercase; max-width: 900px; }
+    .hero-sub { font-size: 1.2rem; max-width: 700px; margin-bottom: 35px; color: var(--mint-dark); opacity: 0.9; }
+
+    /* NÚT CTA PULSE */
+    .btn-pulse {
+      background-color: var(--mint);
+      color: white;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(126, 207, 179, 0.4);
+      animation: pulse-animation 2s infinite;
+    }
+    @keyframes pulse-animation {
+      0% { box-shadow: 0 0 0 0 rgba(126, 207, 179, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(126, 207, 179, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(126, 207, 179, 0); }
+    }
+
+    /* GIẢI PHÁP / PAIN POINTS */
+    #pain-points { padding: 60px 20px; background-color: var(--white); text-align: center; }
+    .pain-container {
+      max-width: 800px; margin: 0 auto;
+      padding: 40px; border-radius: 30px;
+      background-color: #fff5f5; border: 2px dashed #ff8e8e;
+    }
+
+    /* FEATURES SECTION */
+    #features { padding: 80px 20px; background-color: var(--kem); }
+    .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; color: var(--mint-dark); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px; max-width: 1200px; margin: 0 auto;
+    }
+    .feature-card {
+      background: var(--white);
+      padding: 30px; border-radius: 20px;
+      text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-10px); }
+    .feature-card h3 { margin: 15px 0 10px; color: var(--mint); }
+
+    /* PRICING / COMBOS */
+    #pricing { padding: 80px 20px; text-align: center; }
+    .pricing-wrap {
+      display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px;
+    }
+    .combo-card {
+      background: var(--white); border: 2px solid var(--mint-light);
+      padding: 40px; border-radius: 30px; width: 350px;
+      position: relative; transition: all 0.3s;
+    }
+    .combo-card.highlight { border-color: var(--mint); background-color: var(--mint-pale); transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+    .tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 5px 20px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+
+    /* ORDER FORM */
+    #order { padding: 80px 20px; background-color: var(--mint-light); }
+    .form-wrapper {
+      max-width: 600px; margin: 0 auto;
+      background: var(--white); padding: 40px;
+      border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .input-group { margin-bottom: 20px; }
+    .input-group label { display: block; margin-bottom: 8px; font-weight: 700; }
+    .input-group input, .input-group select, .input-group textarea {
+      width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 12px; font-family: inherit;
+    }
+    .btn-submit {
+      width: 100%; background: var(--mint-dark); color: white; border: none;
+      padding: 18px; border-radius: 12px; font-weight: 800; cursor: pointer; font-size: 1.1rem;
+    }
+
+    /* STICKY CTA */
+    #sticky-cta {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: var(--white); padding: 15px;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+      display: flex; justify-content: center; z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    #sticky-cta.hidden { transform: translateY(100%); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.8rem; }
+      .combo-card { width: 100%; }
+      .combo-card.highlight { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="hero">
+    <h1 class="hero-title fade-up">KHĂN MẶT KHÔ ĐA NĂNG NETHIDO - CHĂM SÓC BÉ YÊU TỪ ĐIỀU NHỎ NHẤT</h1>
+    <p class="hero-sub fade-up">Mẹ có biết da bé mỏng hơn người lớn 5 lần? Hãy bảo vệ bé khỏi hăm tã và kích ứng bằng giải pháp từ 100% sợi bông tự nhiên.</p>
+    <a href="#order" class="btn-pulse fade-up">NHẬN ƯU ĐÃI NGAY</a>
+    <div style="margin-top: 40px;" class="fade-up">
+      <img src="" alt="Khăn mặt khô NetHido" style="max-width: 500px; margin: 0 auto; background: #ddd; min-height: 300px;">
+    </div>
+  </section>
+
+  <section id="pain-points">
+    <div class="pain-container fade-up">
+      <h2 style="color: #d63031; margin-bottom: 15px;">Mẹ Có Biết?</h2>
+      <p>Khăn ướt có cồn và khăn vải thô ráp chính là <strong>"kẻ thù"</strong> thầm lặng gây hăm tã, kích ứng làn da mỏng manh của trẻ sơ sinh.</p>
+      <h3 style="margin-top: 20px; color: var(--mint);">NetHido - Giải pháp "vàng" giúp mẹ nhàn tênh, bé luôn sạch sẽ!</h3>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2 class="section-title fade-up">Đặc Điểm Nổi Bật Của NetHido</h2>
+    <div class="feature-grid">
+      <div class="feature-card fade-up">
+        <img src="" alt="100% Sợi Bông" style="background: #eee; height: 150px; width: 100%;">
+        <h3>100% Sợi Bông</h3>
+        <p>Siêu mềm mại, không xơ bông, không để lại bụi vải trên da bé khi lau.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <img src="" alt="Chuẩn Y Khoa" style="background: #eee; height: 150px; width: 100%;">
+        <h3>Chuẩn Y Khoa</h3>
+        <p>Công nghệ ép sạch, không Paraben, không Alcohol, không hóa chất độc hại.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <img src="" alt="Thấm Hút Cực Đỉnh" style="background: #eee; height: 150px; width: 100%;">
+        <h3>Thấm Hút Cực Đỉnh</h3>
+        <p>Sợi vải dai, bền, không bị mủn ngay cả khi nhúng vào nước ấm.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <img src="" alt="Đa Năng & Tiện Lợi" style="background: #eee; height: 150px; width: 100%;">
+        <h3>Đa Năng & Tiện Lợi</h3>
+        <p>Dùng làm khăn ướt vệ sinh cho bé, hoặc mẹ dùng làm bông tẩy trang.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2 class="section-title fade-up">ƯU ĐÃI ĐẶC BIỆT TRONG THÁNG NÀY</h2>
+    <div class="pricing-wrap">
+      <div class="combo-card fade-up">
+        <div class="tag">BÁN CHẠY</div>
+        <h3>Combo 4 Gói</h3>
+        <p style="margin: 20px 0; font-size: 1.2rem;">MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC</p>
+        <p style="color: var(--mint-dark); font-weight: 700;">Kiểm tra hàng trước khi thanh toán</p>
+        <a href="#order" class="btn-pulse" style="margin-top: 25px; animation: none; padding: 12px 30px;">MUA NGAY</a>
+      </div>
+      <div class="combo-card highlight fade-up">
+        <div class="tag">TIẾT KIỆM NHẤT</div>
+        <h3>Combo 10 Gói</h3>
+        <p style="margin: 20px 0; font-size: 1.2rem;">TẶNG VOUCHER GIẢM GIÁ ĐƠN SAU</p>
+        <p style="color: var(--mint-dark); font-weight: 700;">Giao hàng thần tốc - Freeship</p>
+        <a href="#order" class="btn-pulse" style="margin-top: 25px; padding: 12px 30px;">MUA NGAY</a>
+      </div>
+    </div>
+    <p class="fade-up" style="margin-top: 40px; font-weight: 600;">⭐ Cam kết: Kiểm tra hàng trước khi thanh toán - Giao hàng thần tốc ⭐</p>
+  </section>
+
+  <section id="order">
+    <div class="form-wrapper fade-up">
+      <h2 style="text-align: center; margin-bottom: 30px;">THÔNG TIN ĐẶT HÀNG</h2>
+      <div class="input-group">
+        <label>Họ và tên:</label>
+        <input type="text" id="name" placeholder="Nhập họ và tên của mẹ...">
+      </div>
+      <div class="input-group">
+        <label>Số điện thoại:</label>
+        <input type="tel" id="phone" placeholder="Nhập số điện thoại để tư vấn...">
+      </div>
+      <div class="input-group">
+        <label>Địa chỉ nhận hàng:</label>
+        <textarea id="address" rows="3" placeholder="Số nhà, tên đường, phường/xã..."></textarea>
+      </div>
+      <div class="input-group">
+        <label>Chọn gói ưu đãi:</label>
+        <select id="package">
+          <option value="4">Combo 4 gói - Miễn phí vận chuyển</option>
+          <option value="10">Combo 10 gói - Tặng Voucher đơn sau</option>
+        </select>
+      </div>
+      <button class="btn-submit" onclick="submitForm()">XÁC NHẬN ĐẶT HÀNG</button>
+      <div id="success-msg" style="display:none; margin-top: 20px; color: #27ae60; font-weight: 700; text-align: center;">
+        Cảm ơn mẹ! NetHido đã nhận thông tin và sẽ gọi tư vấn ngay ạ.
+      </div>
+      <p style="text-align: center; margin-top: 20px; font-style: italic; font-size: 0.9rem;">
+        Lưu ý: Để lại [Số điện thoại + Số lượng] để được tư vấn size
+      </p>
+    </div>
+  </section>
+
+  <div id="sticky-cta" class="hidden">
+    <a href="#order" class="btn-pulse" style="padding: 12px 50px;">MUA NGAY ĐỂ NHẬN ƯU ĐÃI</a>
+  </div>
+
+  <script>
+    // ===== FADE-UP OBSERVER =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ===== STICKY CTA LOGIC =====
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroSection = document.getElementById('hero');
+    window.addEventListener('scroll', () => {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      if (heroBottom < 0) {
+        stickyCta.classList.remove('hidden');
+      } else {
+        stickyCta.classList.add('hidden');
+      }
+    });
+
+    // ===== FORM SUBMIT =====
+    function submitForm() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const address = document.getElementById('address').value;
+      
+      if(!name || !phone || !address) {
+        alert("Mẹ vui lòng điền đủ thông tin để NetHido hỗ trợ nhé!");
+        return;
+      }
+      
+      document.getElementById('success-msg').style.display = 'block';
+      // Bạn có thể thêm logic gửi API tại đây
+    }
+  </script>
+</body>
+</html>
